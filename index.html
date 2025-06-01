@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxence Vergnaud du Retail - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Space+Grotesk&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;
+            background-color: black;
+            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            padding: 2em;
+        }
+        .name {
+            font-family: 'Cinzel', serif;
+            font-size: 40px;
+            margin-bottom: 34px;
+        }
+        .text {
+            max-width: 800px;
+            line-height: 1.8;
+            text-align: left;
+        }
+        .text p {
+            margin-bottom: 22px;
+        }
+        .menu-toggle {
+  	   width: 30px;
+ 	   height: 24px;
+  	   position: fixed;
+ 	   top: 58px;
+  	   right: 30px;
+ 	   display: flex;
+	   flex-direction: column;
+ 	   justify-content: space-between;
+	   cursor: pointer;
+	   z-index: 1001;
+	 }
+
+	.menu-toggle span {
+ 	  display: block;
+ 	  height: 2px;
+ 	  background-color: white;
+  	  border-radius: 1px;
+  	  transition: all 0.4s ease;
+	}
+
+	/* Quand le menu est ouvert → croix */
+	 .menu-toggle.active span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+	}
+
+	 .menu-toggle.active span:nth-child(2) {
+         opacity: 0;
+	}
+
+	 .menu-toggle.active span:nth-child(3) {
+         transform: rotate(-45deg) translate(6px, -6px);
+	}
+      
+        .menu-content {
+            position: fixed;
+            top: 70px;
+            right: 30px;
+            background-color: black;
+            padding: 10px;
+            display: none;
+            flex-direction: column;
+        }
+        .menu-content a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 0;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        .menu-content a:hover {
+            color: grey;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-toggle" onclick="toggleMenu(this)">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+    <div class="menu-content" id="menu">
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="container">
+        <div class="name">
+            Maxence<br>
+            Vergnaud<br>
+            du Retail
+        </div>
+        <div class="text">
+            <p>Je pratique la photographie depuis plus de 4 ans.</p>
+            <p>Étudiant les sciences de la vie et les arts plastiques à l’Université, et étant passionné par la biodiversité, je me suis premièrement orienté vers la photographie animale. Le travail de photographes tels que Joel Sartore m’a ainsi inspiré.</p>
+            <p> J’ai toutefois élargi mon champ photographique, explorant plus récemment de nouveaux sujets et de nouvelles atmosphères. À travers mes photos, je cherche à retranscrire un instant de vie, les émotions et sensations de scènes souvent calmes et silencieuses.</p>
+            <p>Capturer leur paisibilité est devenu mon <em>leitmotiv</em>.</p>
+        </div>
+    </div>
+
+    <script>
+  function toggleMenu(btn) {
+    const menu = document.getElementById("menu");
+    const isOpen = menu.style.display === "flex";
+
+    menu.style.display = isOpen ? "none" : "flex";
+
+    if (isOpen) {
+      btn.classList.remove("active");
+    } else {
+      btn.classList.add("active");
+    }
+  }
+</script>
+</body>
+</html>
